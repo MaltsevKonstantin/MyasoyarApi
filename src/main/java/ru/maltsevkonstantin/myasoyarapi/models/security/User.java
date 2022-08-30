@@ -8,7 +8,7 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "Users")
+@Table(name = "users")
 public class User {
     @Id
     @Column(name = "id")
@@ -30,9 +30,8 @@ public class User {
     //@Min(value = 8, message = "Длина пароля не может быть меньше 8 знаков.")
     private String password;
 
-    @Column(name = "datecreation")
+    @Column(name = "date_creation")
     @Temporal(TemporalType.TIMESTAMP)
-    @DateTimeFormat(pattern = "dd.MM.yyyy")
     private Date dateCreation;
 
     @Column(name = "blocked")
@@ -98,7 +97,7 @@ public class User {
     }
 
     @Entity
-    @Table(name = "usersauthorities")
+    @Table(name = "user_authorities")
     public static class Authority {
         @Id
         @Column(name = "id")
@@ -106,7 +105,7 @@ public class User {
         private int id;
 
         @ManyToOne
-        @JoinColumn(name = "userid", referencedColumnName = "id")
+        @JoinColumn(name = "user_id", referencedColumnName = "id")
         private User user;
 
         @Enumerated(EnumType.STRING)

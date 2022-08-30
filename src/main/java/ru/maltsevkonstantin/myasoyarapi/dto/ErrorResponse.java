@@ -4,6 +4,14 @@ public class ErrorResponse {
     private String message;
     private long timestamp;
 
+    public ErrorResponse() {
+    }
+
+    public ErrorResponse(String message) {
+        this.timestamp = System.currentTimeMillis();
+        this.message = message;
+    }
+
     public String getMessage() {
         return message;
     }

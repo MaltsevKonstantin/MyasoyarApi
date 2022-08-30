@@ -1,26 +1,12 @@
-package ru.maltsevkonstantin.myasoyarapi.models.libraries;
+package ru.maltsevkonstantin.myasoyarapi.dto;
 
-import javax.persistence.*;
+import ru.maltsevkonstantin.myasoyarapi.models.libraries.CellAssignment;
 
-@Entity
-@Table(name = "cells")
-public class Cell {
-    @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class CellDto {
     private int id;
-
-    @Column(name = "name")
     private String name;
-
-    @ManyToOne
-    @JoinColumn(name = "place_id", referencedColumnName = "id")
-    private Place place;
-
-    @Column(name = "capacity")
     private float capacity;
 
-    @Enumerated(value = EnumType.STRING)
     private CellAssignment assignment;
 
     public CellAssignment getAssignment() {
@@ -45,14 +31,6 @@ public class Cell {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Place getPlace() {
-        return place;
-    }
-
-    public void setPlace(Place place) {
-        this.place = place;
     }
 
     public float getCapacity() {

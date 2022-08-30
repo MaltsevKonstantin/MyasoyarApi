@@ -12,16 +12,16 @@ public class Session {
     int id;
 
     @ManyToOne
-    @JoinColumn(name = "userid", referencedColumnName = "id")
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
     User user;
 
     @Column(name = "token")
     String token;
-    @Column(name = "creationtime")
+    @Column(name = "creation_time")
     Date creationDate;
-    @Column(name = "lastactivetime")
+    @Column(name = "last_active_time")
     Date lastActivityTime;
-    @Column(name = "lifetime")
+    @Column(name = "life_time")
     Date lifeTime;
 
     public int getId() {

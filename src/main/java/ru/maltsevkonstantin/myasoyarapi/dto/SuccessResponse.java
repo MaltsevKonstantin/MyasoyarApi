@@ -1,6 +1,14 @@
 package ru.maltsevkonstantin.myasoyarapi.dto;
 
 public class SuccessResponse {
+
+    public SuccessResponse() {
+    }
+    public SuccessResponse(String message) {
+        this.message = message;
+        this.timestamp = System.currentTimeMillis();
+    }
+
     private String message;
     private long timestamp;
 

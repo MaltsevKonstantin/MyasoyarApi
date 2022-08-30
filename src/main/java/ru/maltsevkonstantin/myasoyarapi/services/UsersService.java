@@ -27,7 +27,7 @@ public class UsersService {
     }
 
     public List<User> findAll() {
-        return repo.findAllOrderByName();
+        return repo.findAllByOrderByName();
     }
 
     public Optional<User> findById(int id) {
