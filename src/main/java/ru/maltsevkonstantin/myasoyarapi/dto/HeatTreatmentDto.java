@@ -1,11 +1,17 @@
 package ru.maltsevkonstantin.myasoyarapi.dto;
 
+import org.springframework.format.annotation.DateTimeFormat;
+import ru.maltsevkonstantin.myasoyarapi.models.libraries.Place;
+
 import java.util.Calendar;
+import java.util.Date;
 
 public class HeatTreatmentDto {
     int id;
-    Calendar startCalendar;
-    Calendar endCalendar;
+    Date startDate;
+    Date endDate;
+
+    PlaceDto placeDto;
     BundleOfProductAndTareDto bundle;
     UserDto user;
 
@@ -17,20 +23,28 @@ public class HeatTreatmentDto {
         this.id = id;
     }
 
-    public Calendar getStartCalendar() {
-        return startCalendar;
+    public PlaceDto getPlaceDto() {
+        return placeDto;
     }
 
-    public void setStartCalendar(Calendar startCalendar) {
-        this.startCalendar = startCalendar;
+    public void setPlaceDto(PlaceDto placeDto) {
+        this.placeDto = placeDto;
     }
 
-    public Calendar getEndCalendar() {
-        return endCalendar;
+    public Date getStartDate() {
+        return startDate;
     }
 
-    public void setEndCalendar(Calendar endCalendar) {
-        this.endCalendar = endCalendar;
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+
+    public Date getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
     }
 
     public BundleOfProductAndTareDto getBundle() {

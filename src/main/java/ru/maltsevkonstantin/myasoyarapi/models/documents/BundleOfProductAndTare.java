@@ -4,6 +4,7 @@ import ru.maltsevkonstantin.myasoyarapi.models.libraries.Cell;
 import ru.maltsevkonstantin.myasoyarapi.models.libraries.Tare;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -27,6 +28,62 @@ public class BundleOfProductAndTare {
 
     @OneToMany(mappedBy = "bundleOfProductAndTare", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     List<BundleOfProductAndTareItem> itemList;
+
+    @Column(name = "binding_date")
+    @Temporal(value = TemporalType.TIMESTAMP)
+    private Date bindingDate;
+    @Column(name = "cooking_start_date")
+    @Temporal(value = TemporalType.TIMESTAMP)
+    private Date cookingStartDate;
+    @Column(name = "cooling_start_date")
+    @Temporal(value = TemporalType.TIMESTAMP)
+    private Date coolingStartDate;
+    @Column(name = "allow_dropping_date")
+    @Temporal(value = TemporalType.TIMESTAMP)
+    private Date allowDroppingDate;
+    @Column(name = "complete_date")
+    @Temporal(value = TemporalType.TIMESTAMP)
+    private Date completeDate;
+
+    public Date getBindingDate() {
+        return bindingDate;
+    }
+
+    public void setBindingDate(Date bindingDate) {
+        this.bindingDate = bindingDate;
+    }
+
+    public Date getCookingStartDate() {
+        return cookingStartDate;
+    }
+
+    public void setCookingStartDate(Date cookingStartDate) {
+        this.cookingStartDate = cookingStartDate;
+    }
+
+    public Date getCoolingStartDate() {
+        return coolingStartDate;
+    }
+
+    public void setCoolingStartDate(Date coolingStartDate) {
+        this.coolingStartDate = coolingStartDate;
+    }
+
+    public Date getAllowDroppingDate() {
+        return allowDroppingDate;
+    }
+
+    public void setAllowDroppingDate(Date allowDroppingDate) {
+        this.allowDroppingDate = allowDroppingDate;
+    }
+
+    public Date getCompleteDate() {
+        return completeDate;
+    }
+
+    public void setCompleteDate(Date completeDate) {
+        this.completeDate = completeDate;
+    }
 
     public int getId() {
         return id;

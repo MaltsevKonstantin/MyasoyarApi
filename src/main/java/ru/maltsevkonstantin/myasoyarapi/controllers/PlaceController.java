@@ -10,6 +10,7 @@ import ru.maltsevkonstantin.myasoyarapi.dto.PlaceDto;
 import ru.maltsevkonstantin.myasoyarapi.dto.SuccessResponse;
 import ru.maltsevkonstantin.myasoyarapi.exceptions.NameExistsException;
 import ru.maltsevkonstantin.myasoyarapi.exceptions.NotFoundException;
+import ru.maltsevkonstantin.myasoyarapi.models.libraries.CellAssignment;
 import ru.maltsevkonstantin.myasoyarapi.models.libraries.Place;
 import ru.maltsevkonstantin.myasoyarapi.services.PlaceService;
 
@@ -31,8 +32,15 @@ public class PlaceController {
     }
 
     @GetMapping
-    public List<PlaceDto> places() {
-        return placeService.findAll().stream().map(this::convertToPlaceDto).collect(Collectors.toList());
+    public List<PlaceDto> places(@RequestParam(value = "assignment", defaultValue = "") CellAssignment assignment) {
+        List<Place> placeList;
+        try {
+            if (assignment == null) placeList = placeService.findAll();
+            else placeList = placeService.findByCellsAssignmentOrderByName(assignment);
+        } catch (Exception e) {
+            placeList = placeService.findAll();
+        }
+        return placeList.stream().map(this::convertToPlaceDto).collect(Collectors.toList());
     }
 
     @GetMapping("/{id}")

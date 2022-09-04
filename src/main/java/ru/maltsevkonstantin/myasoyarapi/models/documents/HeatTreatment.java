@@ -4,6 +4,7 @@ import ru.maltsevkonstantin.myasoyarapi.models.security.User;
 
 import javax.persistence.*;
 import java.util.Calendar;
+import java.util.Date;
 
 @Entity
 @Table(name = "heat_treatment")
@@ -14,10 +15,10 @@ public class HeatTreatment {
     int id;
     @Column(name = "start_timestamp")
     @Temporal(TemporalType.TIMESTAMP)
-    Calendar startCalendar;
+    Date startDate;
     @Column(name = "end_timestamp")
     @Temporal(TemporalType.TIMESTAMP)
-    Calendar endCalendar;
+    Date endDate;
     @ManyToOne
     @JoinColumn(name = "bundle_of_product_and_tare_id", referencedColumnName = "id")
     BundleOfProductAndTare bundle;
@@ -33,20 +34,20 @@ public class HeatTreatment {
         this.id = id;
     }
 
-    public Calendar getStartCalendar() {
-        return startCalendar;
+    public Date getStartDate() {
+        return startDate;
     }
 
-    public void setStartCalendar(Calendar startCalendar) {
-        this.startCalendar = startCalendar;
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
     }
 
-    public Calendar getEndCalendar() {
-        return endCalendar;
+    public Date getEndDate() {
+        return endDate;
     }
 
-    public void setEndCalendar(Calendar endCalendar) {
-        this.endCalendar = endCalendar;
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
     }
 
     public BundleOfProductAndTare getBundle() {

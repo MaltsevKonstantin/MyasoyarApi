@@ -47,4 +47,9 @@ public class HeatTreatmentAndCoolingService {
         if (optCooling.isEmpty()) throw new NotFoundException("Не найдено");
         return optCooling.get();
     }
+
+    @Transactional
+    public void saveHeatTreatment(HeatTreatment heatTreatment) {
+        heatTreatmentRepo.save(heatTreatment);
+    }
 }
